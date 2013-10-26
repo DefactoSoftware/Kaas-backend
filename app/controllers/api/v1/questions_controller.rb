@@ -2,7 +2,10 @@ module Api
   module V1
     class QuestionsController < ApplicationController
       def create
-        question = Question.new(question_parameters)
+        category = Category.where(name: question_parameters[:category_name])
+        if category.length == 1
+          question = Question.new(user_id: question_parameters[:user_id], question: question_parameters[:question], category_id: category[0].id)
+        end
 
         if question.save!
           Point.create(user_id: question_parameters[:user_id], amount: 1)
@@ -46,7 +49,7 @@ module Api
 
       private
       def question_parameters
-        params.require(:question).permit(:question, :user_id, :category_id, :answer, :user_answer_id, :time_limit)
+        params.require(:question).permit(:question, :user_id, :category_name, :answer, :user_answer_id, :time_limit)
       end
 
       def send_requests question
