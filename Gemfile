@@ -32,6 +32,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'raddocs'
+end
+
 gem 'rails-api', git: 'https://github.com/rails-api/rails-api.git', branch: 'master'
 
 gem 'urbanairship'

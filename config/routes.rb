@@ -1,4 +1,5 @@
 Wolf::Application.routes.draw do
+  mount Raddocs::App => "/docs" if Rails.env.development?
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create] do

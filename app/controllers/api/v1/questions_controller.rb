@@ -31,8 +31,6 @@ module Api
 
         if question
           render json: question
-        else
-          render json: question.errors, status: :not_found
         end
       end
 
@@ -46,13 +44,13 @@ module Api
         if !questions.empty?
           render json: questions
         else
-          render json: questions.errors, status: :not_found
+          render json: []
         end
       end
 
       private
       def question_parameters
-        params.require(:question).permit(:question, :user_id, :category_id, :answer, :user_answer_id)
+        params.require(:question).permit(:question, :user_id, :category_id, :answer, :user_answer_id, :time_limit)
       end
 
       def send_requests question
