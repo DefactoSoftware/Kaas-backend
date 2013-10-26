@@ -17,12 +17,36 @@ module Api
         question = Question.find(params[:id])
 
         if question.update_attributes!(question_parameters)
+          question.send_push_notification
           render json: question
         else
           render json: question.errors, status: :unprocessable_entity
         end
       end
 
+      def show
+        question = Question.find(params[:id])
+
+        if question
+          render json: question
+        else
+          render json: question.errors, status: :not_found
+        end
+      end
+
+      def index
+        if params[:user_id]
+          questions = Question.where(user_answer_id: params[:user_id])
+        else
+          questions = Question.all
+        end
+
+        if !questions.empty?
+          render json: questions
+        else
+          render json: questions.errors, status: :not_found
+        end
+      end
 
       private
       def question_parameters

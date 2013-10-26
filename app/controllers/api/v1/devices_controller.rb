@@ -5,6 +5,7 @@ module Api
         device = Device.new(device_parameters)
 
         if device.save!
+          register(device)
           render json: device
         else
           render json: device.errors, status: :unprocessable_entity
@@ -14,9 +15,12 @@ module Api
 
       private
       def device_parameters
-        params.require(:devices).permit(:user_id)
+        params.require(:devices).permit(:user_id, :token)
       end
 
+      def register device
+        Urbanairship.register_device(device.token, alias: device.user_id)
+      end
     end
   end
 end
