@@ -41,11 +41,7 @@ module Api
           questions = Question.all
         end
 
-        if !questions.empty?
-          render json: questions
-        else
-          render json: []
-        end
+        render json: questions
       end
 
       private
