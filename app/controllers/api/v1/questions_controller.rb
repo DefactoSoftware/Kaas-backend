@@ -36,7 +36,7 @@ module Api
 
       def index
         if params[:user_id]
-          questions = Question.where(user_answer_id: params[:user_id])
+          questions = Question.where(user_id: params[:user_id])
         else
           questions = Question.all
         end
