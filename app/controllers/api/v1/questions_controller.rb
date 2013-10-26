@@ -4,7 +4,7 @@ module Api
       def create
         category = Category.where(name: question_parameters[:category_name])
         if category.length == 1
-          question = Question.new(user_id: question_parameters[:user_id], question: question_parameters[:question], category_id: category[0].id)
+          question = Question.new(user_id: question_parameters[:user_id], question: question_parameters[:question], category_id: category[0].id, time_limit: question_parameters[:time_limit] || 0)
         end
 
         if question.save!
