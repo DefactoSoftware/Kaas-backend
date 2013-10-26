@@ -4,6 +4,7 @@ Wolf::Application.routes.draw do
       resources :users, only: [:create] do
         resources :questions, only: [:index]
         resources :answers, only: [:index]
+        resources :points, only: [:index]
       end
       resources :questions, only: [:create, :update, :show, :index]
       resources :user_categories, only: [:create]

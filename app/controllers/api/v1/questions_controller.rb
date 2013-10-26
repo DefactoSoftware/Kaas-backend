@@ -5,6 +5,7 @@ module Api
         question = Question.new(question_parameters)
 
         if question.save!
+          Point.create(user_id: question_parameters[:user_id], amount: 1)
           render json: question
         else
           render json: question.errors, status: :unprocessable_entity
@@ -17,6 +18,7 @@ module Api
         question = Question.find(params[:id])
 
         if question.update_attributes!(question_parameters)
+          Point.create(user_id: question_parameters[:user_answer_id], amount: 5)
           question.send_push_notification
           render json: question
         else
