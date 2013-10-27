@@ -70,7 +70,6 @@ module Api
           request.save
         end
       end
-
     end
   end
 end
