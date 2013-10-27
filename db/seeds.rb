@@ -159,8 +159,9 @@ Category.create(name: "Fire")
 Category.create(name: "Pinterest")
 Category.create(name: "Defacto")
 
-jesse=User.create(name:"jesse", email:"j.terpstra@defacto.nl")
 marthyn=User.create(name:"marthyn", email:"marthyn@live.nl")
+jesse=User.create(name:"jesse", email:"j.terpstra@defacto.nl")
+
 Device.create(token:"977919c66b18a4f4737c07768a33cb323c9ebe89e5eaaf3524a69219724ec331", user_id:marthyn.id)
 UserCategory.create(category_id:network_category.id, user_id:marthyn.id)
 question1 = Question.create(question:"How can I supply good wifi for a Hackathon?", category_id:network_category.id, user_id:jesse.id)
