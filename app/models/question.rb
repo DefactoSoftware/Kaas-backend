@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  belongs_to :category
   def send_push_notification
     notification = {
       device_tokens: [Device.where(user_id: user_id)[0].token],

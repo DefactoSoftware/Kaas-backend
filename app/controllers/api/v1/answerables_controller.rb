@@ -4,10 +4,14 @@ module Api
 
     def index
       if params[:user_id]
-        questions = Question.where(user_answer_id: params[:user_id], answer: nil)
+        requests = Request.where(user_id: params[:user_id])
+        questions = []
+        requests.each do |request|
+          questions << Question.find_by_id(request.question_id)
+        end
       end
 
-      render json: questions
+      render json: questions, each_serializer: AnswerableSerializer
     end
 
     end

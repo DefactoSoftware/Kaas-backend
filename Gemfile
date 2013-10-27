@@ -37,6 +37,8 @@ group :development, :test do
   gem 'raddocs'
 end
 
+gem "active_model_serializers"
+
 #gem 'rails-api', git: 'https://github.com/rails-api/rails-api.git', branch: 'master'
 
 gem 'urbanairship'
