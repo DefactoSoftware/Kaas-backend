@@ -11,7 +11,7 @@ module Api
         end
       end
 
-      render json: questions, each_serializer: AnswerableSerializer
+      render json: questions.reverse, each_serializer: AnswerableSerializer
     end
 
     end
