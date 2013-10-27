@@ -163,13 +163,14 @@ marthyn=User.create(name:"marthyn", email:"marthyn@live.nl")
 jesse=User.create(name:"jesse", email:"j.terpstra@defacto.nl")
 
 Device.create(token:"977919c66b18a4f4737c07768a33cb323c9ebe89e5eaaf3524a69219724ec331", user_id:marthyn.id)
+Device.create(token:"977919c66b18a4f4737c07768a33cb323c9ebe89e5eaaf3524a69219724ec331", user_id:jesse.id)
 UserCategory.create(category_id:network_category.id, user_id:marthyn.id)
 question1 = Question.create(question:"How can I supply good wifi for a Hackathon?", category_id:network_category.id, user_id:jesse.id)
 Request.create(user_id: marthyn.id, question_id: question1.id )
 
-UserCategory.create(category_id:umami_category.id, user_id:marthyn.id)
-question2 = Question.create(question:"What is a good way to learn to tast umami?", category_id:umami_category.id, user_id:jesse.id)
-Request.create(user_id: marthyn.id, question_id: question2.id )
+UserCategory.create(category_id:umami_category.id, user_id:jesse.id)
+question2 = Question.create(question:"What is a good way to learn to tast umami?", category_id:umami_category.id, user_id:marthyn.id)
+Request.create(user_id: jesse.id, question_id: question2.id )
 
 UserCategory.create(category_id:china_category.id, user_id:marthyn.id)
 question3 = Question.create(question:"Can people in China download and use google chrome?", category_id:china_category.id, user_id:jesse.id)
