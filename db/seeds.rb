@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
 Category.create(name: "IT")
 Category.create(name: "Software")
 Category.create(name: "SaaS")
@@ -86,7 +87,7 @@ Category.create(name: "Zimbardo")
 Category.create(name: "Cognition")
 Category.create(name: "Copenhagen")
 Category.create(name: "Social Psychology")
-programming.category = Category.create(name: "Programming")
+programming_category = Category.create(name: "Programming")
 Category.create(name: "Python")
 Category.create(name: "CSS")
 Category.create(name: "HTML")
@@ -160,24 +161,30 @@ Category.create(name: "Defacto")
 
 jesse=User.create(name:"jesse", email:"j.terpstra@defacto.nl")
 marthyn=User.create(name:"marthyn", email:"marthyn@live.nl")
-Devise.create(token:"977919c66b18a4f4737c07768a33cb323c9ebe89e5eaaf3524a69219724ec331", user_id:marthyn.id)
+Device.create(token:"977919c66b18a4f4737c07768a33cb323c9ebe89e5eaaf3524a69219724ec331", user_id:marthyn.id)
 UserCategory.create(category_id:network_category.id, user_id:marthyn.id)
-Question.create(question:"How can I supply good wifi for a Hackathon?", category_id:network_category.id, user_id:jesse.id)
+question1 = Question.create(question:"How can I supply good wifi for a Hackathon?", category_id:network_category.id, user_id:jesse.id)
+Request.create(user_id: marthyn.id, question_id: question1.id )
 
 UserCategory.create(category_id:umami_category.id, user_id:marthyn.id)
-Question.create(question:"What is a good way to learn to tast umami?", category_id:umami_category.id, user_id:jesse.id)
+question2 = Question.create(question:"What is a good way to learn to tast umami?", category_id:umami_category.id, user_id:jesse.id)
+Request.create(user_id: marthyn.id, question_id: question2.id )
 
 UserCategory.create(category_id:china_category.id, user_id:marthyn.id)
-Question.create(question:"Can people in China download and use google chrome?", category_id:china_category.id, user_id:jesse.id)
+question3 = Question.create(question:"Can people in China download and use google chrome?", category_id:china_category.id, user_id:jesse.id)
+Request.create(user_id: marthyn.id, question_id: question3.id )
 
 UserCategory.create(category_id:lufthansa_category.id, user_id:marthyn.id)
-Question.create(question:"How is flying with Lufthansa, is it any good?", category_id:lufthansa_category.id, user_id:jesse.id)
+question4 = Question.create(question:"How is flying with Lufthansa, is it any good?", category_id:lufthansa_category.id, user_id:jesse.id)
+Request.create(user_id: marthyn.id, question_id: question4.id )
 
 UserCategory.create(category_id:programming_category.id, user_id:marthyn.id)
-Question.create(question:"What’s an average programmer salary in Berlin?", category_id:programming_category.id, user_id:jesse.id)
+Question.create(question:"What’s an average programmer salary in Berlin?", category_id:programming_category.id, user_id:jesse.id, answer: "€5000", user_answer_id: marthyn.id)
+
 
 UserCategory.create(category_id:berlin_category.id, user_id:marthyn.id)
-Question.create(question:"Whats the cheapest hostel next to Arena?", category_id:berlin_category.id, user_id:jesse.id)
+Question.create(question:"Whats the cheapest hostel next to Arena?", category_id:berlin_category.id, user_id:jesse.id, user_answer_id: marthyn.id, answer:"All in hotel")
 
-UserCategory.create(category_id:hackaton_category.id, user_id:marthyn.id)
-Question.create(question:"When is the next big Hackathon in Berlin?", category_id:hackaton_category.id, user_id:jesse.id)
+UserCategory.create(category_id:hackathon_category.id, user_id:marthyn.id)
+Question.create(question:"When is the next big Hackathon in Berlin?", category_id:hackathon_category.id, user_id:jesse.id, answer: "Disrupt 2014!", user_answer_id:marthyn.id)
+
