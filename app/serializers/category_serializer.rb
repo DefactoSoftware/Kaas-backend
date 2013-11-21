@@ -1,5 +1,5 @@
 
 class CategorySerializer < ActiveModel::Serializer
   include ActionView::Helpers::DateHelper
-  attributes :id, :name
+  attributes :name
 end
