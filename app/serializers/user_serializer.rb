@@ -1,10 +1,8 @@
-
 class UserSerializer < ActiveModel::Serializer
   include ActionView::Helpers::DateHelper
-  attributes :id, :name, :email, :points
+  attributes :id, :name, :email, :total_points
 
-  def points
-    Point.where(user: object)
+  def total_points
+    object.total_points
   end
-
 end
