@@ -15,12 +15,7 @@ class User < ActiveRecord::Base
   has_many :requests
   has_many :points
 
-  def points
-    points = Point.where(user: self)
-    total = 0
-    points.each do |point|
-      total += point.amount
-    end
-    total
+  def total_points
+    points.map(&:amount).reduce(0, :+)
   end
 end
