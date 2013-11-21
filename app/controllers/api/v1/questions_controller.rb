@@ -19,7 +19,6 @@ module Api
 
       def update
         question = Question.find(params[:id])
-
         if question.update_attributes!(question_parameters)
           request = Request.where(user_id:question_parameters[:user_answer_id], question_id: params[:id])
           if request.length == 1
