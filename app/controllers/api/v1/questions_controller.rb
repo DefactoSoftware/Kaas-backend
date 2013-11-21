@@ -21,7 +21,6 @@ module Api
         question = Question.find(params[:id])
 
         if question.update_attributes!(question_parameters)
-          Point.create(user_id: question_parameters[:user_answer_id], amount: 5)
           request = Request.where(user_id:question_parameters[:user_answer_id], question_id: params[:id])
           if request.length == 1
             request[0].delete

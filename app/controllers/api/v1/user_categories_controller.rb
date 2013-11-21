@@ -2,7 +2,7 @@ module Api
   module V1
     class UserCategoriesController < ApplicationController
       def create
-        category = Category.find_or_create_by_name(user_category_parameters[:name])
+        category = Category.find_or_create_by(name: user_category_parameters[:name])
         user_category = UserCategory.new(user_id: user_category_parameters[:user_id], category: category)
 
         if user_category.save!

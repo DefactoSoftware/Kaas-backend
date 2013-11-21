@@ -7,7 +7,6 @@ class Question < ActiveRecord::Base
         alert: 'Your question has been answered!',
         badge: 1,
         question_id: id
-
       }
     }
 

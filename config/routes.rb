@@ -11,6 +11,7 @@ Wolf::Application.routes.draw do
       resources :user_categories, only: [:create]
       resources :categories, only: [:index]
       resources :devices, only: [:create]
+      resources :sessions, only: [:create]
     end
   end
 end
