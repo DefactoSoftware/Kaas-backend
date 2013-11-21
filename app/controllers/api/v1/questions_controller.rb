@@ -8,7 +8,6 @@ module Api
         end
 
         if question.save!
-          Point.create(user_id: question_parameters[:user_id], amount: 1)
           render json: question
         else
           render json: question.errors, status: :unprocessable_entity
@@ -20,9 +19,10 @@ module Api
       def update
         question = Question.find(params[:id])
         if question.update_attributes!(question_parameters)
-          request = Request.where(user_id:question_parameters[:user_answer_id], question_id: params[:id])
-          if request.length == 1
-            request[0].delete
+          award_points question
+          requests = Request.where(question_id: params[:id])
+          requests.each do |request|
+            request.delete
           end
           question.send_push_notification
           render json: question
@@ -67,6 +67,12 @@ module Api
           request = Request.new(question_id: question.id, user_id: user.user_id)
           request.save
         end
+      end
+
+      def award_points question
+        user = User.find(question.user_answer_id)
+        amount = ((Float(300) - (Time.now - Question.last.created_at.time))/10).round
+        Point.create(user: user, amount: amount)
       end
     end
   end
