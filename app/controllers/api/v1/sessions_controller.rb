@@ -2,9 +2,9 @@ module Api
   module V1
     class SessionsController < ApplicationController
       def create
-        user = User.where(email: user_parameters[:email]).first
+        user = User.where(email: user_parameters[:email])
         if user
-          render json: user, serializer: UserSerializer
+          render json: user.first, serializer: UserSerializer
         else
           render status: :unauthorized
         end
