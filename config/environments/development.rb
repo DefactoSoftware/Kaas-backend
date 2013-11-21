@@ -27,3 +27,5 @@ Wolf::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 end
+
+Raddocs::Configuration.add_setting :docs_dir, :default => Rails.root.join('doc/api')

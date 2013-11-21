@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: requests
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  question_id :integer
+#  time_limit  :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class Request < ActiveRecord::Base
   belongs_to :user
   belongs_to :question

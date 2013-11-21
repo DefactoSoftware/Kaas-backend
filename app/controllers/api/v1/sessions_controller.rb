@@ -6,7 +6,7 @@ module Api
         if user
           render json: user
         else
-          render json: user.errors, status: :unauthorized
+          render status: :unauthorized
         end
       end
 

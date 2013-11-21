@@ -1,0 +1,59 @@
+{
+  "resources": [
+    {
+      "name": "Categories",
+      "examples": [
+        {
+          "description": "Listing categories",
+          "link": "categories/listing_categories.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
+      "name": "Sessions",
+      "examples": [
+        {
+          "description": "Logging in",
+          "link": "sessions/logging_in.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
+      "name": "User Categories",
+      "examples": [
+        {
+          "description": "Adding a category to user",
+          "link": "user_categories/adding_a_category_to_user.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "examples": [
+        {
+          "description": "Creating a user",
+          "link": "users/creating_a_user.json",
+          "groups": "all"
+        },
+        {
+          "description": "Listing answerables",
+          "link": "users/listing_answerables.json",
+          "groups": "all"
+        },
+        {
+          "description": "Listing questions",
+          "link": "users/listing_questions.json",
+          "groups": "all"
+        },
+        {
+          "description": "Listing questions",
+          "link": "users/listing_questions.json",
+          "groups": "all"
+        }
+      ]
+    }
+  ]
+}

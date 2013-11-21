@@ -20,6 +20,14 @@ group :development, :test do
   gem 'raddocs'
 end
 
+group :test do
+  gem 'guard-rspec'
+  gem 'shoulda-matchers', '~> 2.4.0'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'ffaker'
+end
+
 gem "active_model_serializers"
 
 gem 'rails-api', git: 'https://github.com/rails-api/rails-api.git', branch: 'master'

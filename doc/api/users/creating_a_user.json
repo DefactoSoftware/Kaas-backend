@@ -1,0 +1,40 @@
+{
+  "resource": "Users",
+  "http_method": "POST",
+  "route": "/api/v1/users",
+  "description": "Creating a user",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "user",
+      "name": "email",
+      "description": "The users email address"
+    },
+    {
+      "scope": "user",
+      "name": "name",
+      "description": "The users password"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/v1/users",
+      "request_body": "user[email]=Marthyn%40live.nl&user[name]=Marthyn+Olthof",
+      "request_headers": {
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"id\":12,\"name\":\"Marthyn Olthof\",\"email\":\"Marthyn@live.nl\",\"created_at\":\"2013-11-21T11:23:56.845Z\",\"updated_at\":\"2013-11-21T11:23:56.845Z\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"06402d5a03e11d72a27c0cf3f8ff2c64\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"8f160cb2-0332-488d-8118-07b846086186","X-Runtime":"0.008458","Content-Length":"139"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}
