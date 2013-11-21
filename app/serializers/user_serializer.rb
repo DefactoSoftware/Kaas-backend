@@ -4,7 +4,7 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :email, :points
 
   def points
-    Points.where(user: object)
+    Point.where(user: object)
   end
 
 end
