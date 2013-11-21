@@ -3,7 +3,7 @@ Wolf::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create] do
+      resources :users, only: [:create, :show] do
         resources :questions, only: [:index]
         resources :answers, only: [:index]
         resources :points, only: [:index]

@@ -10,6 +10,15 @@ module Api
         end
       end
 
+      def show
+        user = User.find(params[:id])
+        if user
+          render json: user, serializer: UserSerializer
+        else
+          render status: :unprocessable_entity
+        end
+      end
+
       private
       def user_parameters
         params.require(:user).permit(:name, :email)

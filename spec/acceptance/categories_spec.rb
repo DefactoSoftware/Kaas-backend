@@ -3,9 +3,9 @@ require 'rspec_api_documentation/dsl'
 
 resource "Categories" do
   before :each do
-    Category.create(name: "iOS")
-    Category.create(name: "JSON")
-    Category.create(name: "C#")
+    3.times do
+      FactoryGirl.create(:category)
+    end
   end
 
   get "/api/v1/categories" do
