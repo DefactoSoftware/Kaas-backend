@@ -2,7 +2,12 @@ module Api
   module V1
     class CategoriesController < ApplicationController
       def index
-        render json: Category.all
+        categories = Category.all
+        array = []
+        categories.each do |c|
+          array << c.name
+        end
+        render json: array
       end
     end
   end
