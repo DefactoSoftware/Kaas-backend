@@ -4,7 +4,7 @@ module Api
       def create
         user = User.where(email: user_parameters[:email])
         if user
-          render json: user.first, serializer: UserSerializer
+          render json: user.last, serializer: UserSerializer
         else
           render status: :unauthorized
         end
