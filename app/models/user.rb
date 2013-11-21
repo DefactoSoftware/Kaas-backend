@@ -14,4 +14,13 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :requests
   has_many :points
+
+  def points
+    points = Point.where(user: self)
+    total = 0
+    points.each do |point|
+      total += point.amount
+    end
+    total
+  end
 end

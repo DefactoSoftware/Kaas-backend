@@ -15,7 +15,7 @@ module Api
 
       private
       def device_parameters
-        params.require(:devices).permit(:user_id, :token)
+        params.require(:device).permit(:user_id, :token)
       end
 
       def register device
